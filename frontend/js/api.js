@@ -1,10 +1,7 @@
 class API {
     static async fetchMovies() {
-        const response = await fetch(
-            `${CONFIG.API_BASE_URL}${CONFIG.API_MOVIES}`
-        );
-        if (!response.ok) {
-            throw new Error('Failed to fetch movies');
+        const response = await fetch(`${CONFIG.API_BASE_URL}/api/stats`);
+        throw new Error(`HTTP error! status: ${response.status}`);
         }
         return await response.json();
     }
